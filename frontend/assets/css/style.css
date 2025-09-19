@@ -7,26 +7,96 @@ body {
   background: #f9f9f9;
 }
 
+/* Header Layout */
+/* Header */
 /* Header */
 header {
   background: #007bff;
-  color: #fff;
-  padding: 1rem 2rem;
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
 }
+
+/* Logo */
 header .logo {
   font-size: 1.5rem;
   font-weight: bold;
 }
-header nav a {
-  color: #fff;
-  margin: 0 10px;
-  text-decoration: none;
+
+/* Navigation (default desktop) */
+nav {
+  display: flex;
+  gap: 15px;
 }
-header nav a:hover {
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover {
   text-decoration: underline;
+}
+
+/* Right Section */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Buttons */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+.auth-buttons .btn {
+  background: white;
+  color: #007bff !important;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.auth-buttons .btn.secondary {
+  background: #6c757d;
+  color: white !important;
+}
+.auth-buttons .btn:hover {
+  opacity: 0.9;
+}
+
+/* Hamburger Button */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #0056b3;
+    display: none;
+  }
+  nav a {
+    padding: 12px;
+    border-top: 1px solid #004494;
+    text-align: center;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  nav.active {
+    display: flex;
+  }
 }
 
 /* Hero Section */
