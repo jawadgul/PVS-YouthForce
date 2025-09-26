@@ -4,34 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - PVS YouthForce</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <!-- Unicons -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 <body>
-  <header>
-    <div class="logo">PVS YouthForce</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="login.html" class="active">Login</a>
-      <a href="register.html">Register</a>
-    </nav>
-  </header>
+  <div class="auth-container" role="dialog" aria-modal="true" aria-labelledby="authTitleLogin">
+    <button class="close-btn" aria-label="Close" onclick="closeModal()">×</button>
 
-  <main class="page-content">
-    <h1>Login</h1>
-    <form class="auth-form">
-      <label>Email</label>
-      <input type="email" placeholder="Enter your email" required>
-      
-      <label>Password</label>
-      <input type="password" placeholder="Enter your password" required>
-      
-      <button type="submit">Login</button>
+    <h2 id="authTitleLogin">Welcome Back</h2>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="auth-form">
+      <label for="loginEmail">Email</label>
+      <div class="input-wrap">
+        <i class="uil uil-envelope input-icon"></i>
+        <input id="loginEmail" name="email" type="email" placeholder="you@example.com" required>
+      </div>
+
+      <label for="loginPassword">Password</label>
+      <div class="input-wrap">
+        <i class="uil uil-lock input-icon"></i>
+        <input id="loginPassword" name="password" type="password" placeholder="Enter password" required minlength="6">
+        <button type="button" class="eye-btn" onclick="togglePassword('loginPassword', this)">
+          <i class="uil uil-eye"></i>
+        </button>
+      </div>
+
+      <!-- Options Row -->
+      <div class="form-options">
+        <label class="remember">
+          <input type="checkbox" id="rememberMe"> Remember me
+        </label>
+        <a href="#" class="forgot-link">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn primary">Login</button>
+
+      <p class="micro">Don’t have an account?
+        <button type="button" class="link-btn" onclick="switchToRegister()">Register</button>
+      </p>
     </form>
-  </main>
+  </div>
 
-  <footer>
-    <p>&copy; 2025 PVS YouthForce. All Rights Reserved.</p>
-  </footer>
-  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/login.js" defer></script>
 </body>
 </html>

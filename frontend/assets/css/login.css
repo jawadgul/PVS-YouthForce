@@ -1,0 +1,149 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #007bff 90%, #00c896 10%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-container {
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.4s ease;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555;
+}
+.close-btn:hover { color: #000; }
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input styling */
+.input-wrap {
+  position: relative;
+}
+.input-wrap input {
+  width: 100%;
+  padding: 12px 40px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+.input-wrap input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+}
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #007bff;
+  animation: bounce 1.5s infinite;
+}
+.eye-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #00c896;
+  font-size: 18px;
+}
+
+/* Options row */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+.remember input {
+  margin-right: 5px;
+}
+.forgot-link {
+  color: #007bff;
+  text-decoration: none;
+}
+.forgot-link:hover { text-decoration: underline; }
+
+/* Button */
+.btn.primary {
+  background: linear-gradient(135deg, #007bff, #00c896);
+  color: #fff;
+  border: none;
+  padding: 14px; /* bigger button */
+  border-radius: 10px; /* more rounded */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.btn.primary:hover { opacity: 0.9; }
+
+/* Micro text */
+.micro {
+  margin-top: 15px;
+  font-size: 13px;
+  text-align: center;
+  color: #555;
+}
+.link-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: 600;
+}
+.link-btn:hover { text-decoration: underline; }
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-55%) scale(1.1); }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 20px;
+    max-width: 95%;
+  }
+  .btn.primary {
+    font-size: 15px;
+    padding: 12px;
+  }
+}

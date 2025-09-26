@@ -4,43 +4,140 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register - PVS YouthForce</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <!-- Unicons -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <link rel="stylesheet" href="../assets/css/register.css">
 </head>
 <body>
-  <header>
-    <div class="logo">PVS YouthForce</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="login.html">Login</a>
-      <a href="register.html" class="active">Register</a>
-    </nav>
-  </header>
+  <div class="auth-container" role="dialog" aria-modal="true" aria-labelledby="authTitleReg">
+    <button class="close-btn" aria-label="Close" onclick="closeModal()">×</button>
 
-  <main class="page-content">
-    <h1>Register</h1>
-    <form class="auth-form">
-      <label>Full Name</label>
-      <input type="text" placeholder="Enter your name" required>
+    <h2 id="authTitleReg">Create Account</h2>
 
-      <label>Email</label>
-      <input type="email" placeholder="Enter your email" required>
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" id="volunteerTab">Volunteer</button>
+      <button class="tab" id="orgTab">Organization</button>
+    </div>
 
-      <label>Password</label>
-      <input type="password" placeholder="Create a password" required>
+    <!-- Volunteer Form -->
+    <form id="volunteerForm" class="auth-form">
+      <label for="volName">Full Name</label>
+      <div class="input-wrap">
+        <i class="uil uil-user input-icon"></i>
+        <input id="volName" type="text" placeholder="Your full name" required>
+      </div>
 
-      <label>Role</label>
-      <select>
-        <option value="volunteer">Volunteer</option>
-        <option value="ngo">NGO</option>
-      </select>
+      <label for="volFather">Father's Name</label>
+      <div class="input-wrap">
+        <i class="uil uil-user-square input-icon"></i>
+        <input id="volFather" type="text" placeholder="Father's name" required>
+      </div>
 
-      <button type="submit">Register</button>
+      <label for="volEmail">Email</label>
+      <div class="input-wrap">
+        <i class="uil uil-envelope input-icon"></i>
+        <input id="volEmail" type="email" placeholder="you@example.com" required>
+      </div>
+
+      <label for="volPhone">Phone Number</label>
+      <div class="input-wrap">
+        <i class="uil uil-phone input-icon"></i>
+        <input id="volPhone" type="tel" placeholder="+92xxxxxxxxxx" required>
+      </div>
+
+      <label for="volDob">Date of Birth</label>
+      <div class="input-wrap">
+        <i class="uil uil-calendar-alt input-icon"></i>
+        <input id="volDob" type="date" required>
+      </div>
+
+      <label for="volGender">Gender</label>
+      <div class="input-wrap">
+        <i class="uil uil-users-alt input-icon"></i>
+        <select id="volGender" required>
+          <option value="" disabled selected>Select gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <label for="volPassword">Password</label>
+      <div class="input-wrap">
+        <i class="uil uil-lock input-icon"></i>
+        <input id="volPassword" type="password" placeholder="Choose password" required minlength="6">
+        <button type="button" class="eye-btn" onclick="togglePassword('volPassword', this)">
+          <i class="uil uil-eye"></i>
+        </button>
+      </div>
+
+      <label for="volConfirm">Confirm Password</label>
+      <div class="input-wrap">
+        <i class="uil uil-lock input-icon"></i>
+        <input id="volConfirm" type="password" placeholder="Repeat password" required>
+        <i class="uil uil-check-circle status-icon" id="volStatus"></i>
+      </div>
+
+      <button type="submit" class="btn primary">Register as Volunteer</button>
     </form>
-  </main>
 
-  <footer>
-    <p>&copy; 2025 PVS YouthForce. All Rights Reserved.</p>
-  </footer>
-  <script src="../assets/js/script.js"></script>
+    <!-- Organization Form -->
+    <form id="orgForm" class="auth-form hidden">
+      <label for="orgName">Organization Name</label>
+      <div class="input-wrap">
+        <i class="uil uil-building input-icon"></i>
+        <input id="orgName" type="text" placeholder="Organization name" required>
+      </div>
+
+      <label for="orgPerson">Contact Person</label>
+      <div class="input-wrap">
+        <i class="uil uil-user input-icon"></i>
+        <input id="orgPerson" type="text" placeholder="Person in charge" required>
+      </div>
+
+      <label for="orgEmail">Email</label>
+      <div class="input-wrap">
+        <i class="uil uil-envelope input-icon"></i>
+        <input id="orgEmail" type="email" placeholder="org@example.com" required>
+      </div>
+
+      <label for="orgWebsite">Organization Website</label>
+      <div class="input-wrap">
+        <i class="uil uil-globe input-icon"></i>
+        <input id="orgWebsite" type="url" placeholder="https://example.org" required>
+      </div>
+
+      <label for="orgSocial">Social Media Profile (optional)</label>
+      <div class="input-wrap">
+        <i class="uil uil-share-alt input-icon"></i>
+        <input id="orgSocial" type="url" placeholder="https://facebook.com/org">
+      </div>
+
+      <label for="orgPassword">Password</label>
+      <div class="input-wrap">
+        <i class="uil uil-lock input-icon"></i>
+        <input id="orgPassword" type="password" placeholder="Choose password" required minlength="6">
+        <button type="button" class="eye-btn" onclick="togglePassword('orgPassword', this)">
+          <i class="uil uil-eye"></i>
+        </button>
+      </div>
+
+      <label for="orgConfirm">Confirm Password</label>
+      <div class="input-wrap">
+        <i class="uil uil-lock input-icon"></i>
+        <input id="orgConfirm" type="password" placeholder="Repeat password" required>
+        <i class="uil uil-check-circle status-icon" id="orgStatus"></i>
+      </div>
+
+      <button type="submit" class="btn primary">Register Organization</button>
+    </form>
+
+    <p class="micro">Already have an account?
+      <button type="button" class="link-btn" onclick="switchToLogin()">Login</button>
+    </p>
+  </div>
+
+  <script src="../assets/js/register.js" defer></script>
 </body>
 </html>

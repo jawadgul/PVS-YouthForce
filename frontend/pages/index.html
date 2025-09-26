@@ -4,50 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PVS YouthForce - Home</title>
+  <!-- Link CSS -->
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
   <!-- Header -->
- <header>
-  <div class="logo">PVS YouthForce</div>
-
-  <!-- Right Section (Login/Register + Hamburger) -->
-  <div class="right-section">
-    <div class="auth-buttons">
-      <a href="login.html" class="btn">Login</a>
-      <a href="register.html" class="btn secondary">Register</a>
+  <header>
+    <div class="logo">PVS YouthForce</div>
+    <nav id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="right-section">
+      <button class="btn open-auth" data-page="login.html">Login</button>
+      <button class="btn secondary open-auth" data-page="register.html">Register</button>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  </div>
+  </header>
 
-  <!-- Navigation -->
-  <nav id="nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="faq.html">FAQ</a>
-  </nav>
-</header>
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <h1>Empowering Young Volunteers Through Tech</h1>
     <p>Connecting NGOs with passionate youth for meaningful opportunities.</p>
     <div class="cta-buttons">
-      <a href="register.html" class="btn">Join as Volunteer</a>
-      <a href="register.html" class="btn secondary">Register NGO</a>
+      <button class="btn open-auth" data-page="register.html">Join as Volunteer</button>
+      <button class="btn secondary open-auth" data-page="register.html">Register NGO</button>
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About -->
   <section class="about">
     <h2>About PVS YouthForce</h2>
-    <p>
-      PVS YouthForce is a platform designed to connect NGOs with youth volunteers.
-      Organizations can post opportunities while young people can apply and make a difference.
-    </p>
+    <p>PVS YouthForce is a platform designed to connect NGOs with youth volunteers. 
+       Organizations can post opportunities while young people can apply and make a difference.</p>
   </section>
 
-  <!-- Features Section -->
+  <!-- Features -->
   <section class="features">
     <div class="feature-card">
       <h3>Volunteer Apply</h3>
@@ -67,6 +61,11 @@
   <footer>
     <p>&copy; 2025 PVS YouthForce. All Rights Reserved.</p>
   </footer>
+
+  <!-- Empty Modal Container -->
+  <div id="authModal" class="modal hidden"></div>
+
+  <!-- Link JS -->
   <script src="../assets/js/script.js"></script>
 </body>
 </html>
